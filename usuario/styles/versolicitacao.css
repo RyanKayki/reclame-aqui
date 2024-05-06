@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #040d21;
+    background-image: url(https://github.githubassets.com/assets/hero-glow-f6eed469bca2.svg);
+    height: 100vh;
+    margin: 0;
+}
+main {
+  width: 50%;
+}
+#resp{
+  border-radius: 5px ;
+  background-color: #06b800;
+}
+.reclama-status {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+.status-not-responded {
+    color: rgb(0, 0, 0);
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

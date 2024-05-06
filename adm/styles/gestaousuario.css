@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #040d21;
+    background-image: url(https://github.githubassets.com/assets/hero-glow-f6eed469bca2.svg);
+}
+.container {
+    max-width: 1500px;
+    min-width: a;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #666;
+    border-radius: 5px;
+}
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+.content {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+.reclama-card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+.reclama-header {
+    font-weight: bold;
+    color: #c00;
+    margin-bottom: 10px;
+}
+.reclama-assunto {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.reclama-descricao {
+    margin-bottom: 10px;
+}
+.reclama-hora {
+    color: #666;
+}
+.ver-mais-btn {
+    background-color: #c00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+.ver-mais-btn:hover {
+    background-color: #900;
+}
+
+.reclama-status {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+
+.status-not-responded {
+    color: rgb(0, 0, 0);
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+/* Estilo para as caixas ao redor de cada ID */
+.id-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,199 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #040d21;
+    background-image: url(https://github.githubassets.com/assets/hero-glow-f6eed469bca2.svg);
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    /* Adicionando posição relativa para o corpo */
+  }
+  .login {
+    position: absolute;
+    top: 0px;
+    /* Ajuste a posição vertical conforme necessário */
+    right: 10px;
+    /* Ajuste a posição horizontal conforme necessário */
+    color: white;
+    font-size: 20px;
+  }
+
+  .form-card1 {
+    border-radius: 22px;
+    transition: all 0.3s;
+    width: 700px;
+    /* Define a largura da caixa de formulário */
+    margin: auto;
+    /* Centraliza horizontalmente */
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+  }
+
+
+  .form-card2 {
+    border-radius: 0;
+    transition: all 0.2s;
+
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    font-family: inherit;
+    gap: 10px;
+    padding-inline: 2em;
+    padding-bottom: 0.4em;
+    border-radius: 20px;
+  }
+
+  .form-heading {
+    text-align: center;
+    margin: 2em;
+    color: #ccd6f6;
+    font-size: 1.2em;
+    background-color: transparent;
+    align-self: center;
+  }
+
+  .form-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 10px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: white;
+    box-shadow: inset 0px 0px 3px #293772;
+    margin-bottom: 2px;
+  }
+
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #fff;
+    padding-inline: 1em;
+  }
+
+  .input-field::placeholder {
+    color: #64ffda;
+  }
+  .acesso-text {
+    color: gray
+  }
+
+  .acesso-text:hover {
+    color: blue;
+  }
+
+  .btn-login {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #293773;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin: 20px;
+  }
+
+  .btn-login:active {
+    transform: scale(0.96);
+  }
+
+  .btn-login:before,
+  .btn-login:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+    text-decoration: none;
+  }
+
+  .btn-login:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+      10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+    text-decoration: none;
+  }
+
+  @keyframes greentopBubbles {
+    0% {
+      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+        40% 90%, 55% 90%, 70% 90%;
+    }
+
+    50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+
+    100% {
+      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+        50% 40%, 65% 10%, 90% 20%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+
+  .btn-login:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+      radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+    text-decoration: none;
+  }
+
+  @keyframes greenbottomBubbles {
+    0% {
+      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+        70% -10%, 70% 0%;
+    }
+
+    50% {
+      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+        105% 0%;
+    }
+
+    100% {
+      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+        110% 10%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+  @media screen and (max-width: 1170px) {
+    .form-card2 {
+      max-width: 400px; /* Added max-width */
+      width: 100%;
+      margin: auto;
+    }
+  }

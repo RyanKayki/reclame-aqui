@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #040d21;
+    background-image: url(https://github.githubassets.com/assets/hero-glow-f6eed469bca2.svg);
+    height: 100vh;
+    margin: 0;
+}
+
+#btn-reclame {
+background-color: #9837bf; /* Cor de fundo */
+border: none; /* Remove a borda */
+color: white; /* Cor do texto */
+text-align: center; /* Alinhamento do texto */
+text-decoration: none; /* Remove sublinhado */
+display: inline-block; /* Permite ajuste do tamanho */
+font-size: 16px; /* Tamanho da fonte */
+margin: 4px 2px; /* Margem */
+cursor: pointer; /* Cursor ao passar por cima */
+border-radius: 5px; /* Borda arredondada */
+}

@@ -54,43 +54,47 @@ carregarDetalhesReclamacao();
 
 
 async function respondareclama(event) {
-    event.preventDefault();
-  
-    const resposta = document.getElementById('resposta-empresa').value;
-  
-    if (!resposta.trim()) {
-      alert('Por favor, insira uma resposta!');
-      return false;
-    }
-  
-    const id = getReclamacaoIdFromURL();
-    if (!id) {
-      alert('ID da reclamação não encontrado.');
-      return false;
-    }
-  
-    try {
-      const formData = new FormData();
-      formData.append('resposta-empresa', resposta); // Envia a resposta como parte do formulário
-  
-      const response = await fetch(`https://88b7c53b-f8c2-4a85-8211-2fd5dc7fc089-00-wqhmyve1zz6r.picard.replit.dev/getallreclamacoes/${id}`, {
-        method: 'PUT',
-        body: formData,
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        alert(data.message);
-        window.location.href = '/adm/home/index.html';
-      } else {
-        const errorData = await response.json();
-        alert(`Erro: ${errorData.message || 'Erro desconhecido'}`);
-      }
-    } catch (error) {
-      console.error('Erro ao fazer a requisição:', error);
-      alert('Erro ao tentar enviar a resposta');
-    }
+  event.preventDefault();
+
+  const resposta = document.getElementById('resposta-empresa').value;
+
+  if (!resposta.trim()) {
+    alert('Por favor, insira uma resposta!');
+    return false;
   }
+
+  const id = getReclamacaoIdFromURL();
+  if (!id) {
+    alert('ID da reclamação não encontrado.');
+    return false;
+  }
+
+  try {
+    // Remover FormData e enviar apenas o corpo JSON
+    const response = await fetch(`https://88b7c53b-f8c2-4a85-8211-2fd5dc7fc089-00-wqhmyve1zz6r.picard.replit.dev/getallreclamacoes/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',  // Garantir que o tipo de conteúdo seja JSON
+      },
+      body: JSON.stringify({
+        'resposta': resposta  // Certifique-se de que a chave aqui seja 'resposta' e não 'resposta-empresa'
+      })
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      window.location.href = '/adm/home/index.html';
+    } else {
+      const errorData = await response.json();
+      alert(`Erro: ${errorData.message || 'Erro desconhecido'}`);
+    }
+  } catch (error) {
+    console.error('Erro ao fazer a requisição:', error);
+    alert('Erro ao tentar enviar a resposta');
+  }
+}
+
   
 
 // Função para obter o ID da reclamação da URL (ajuste conforme necessário)

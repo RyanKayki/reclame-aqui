@@ -84,7 +84,7 @@ async function respondareclama(event) {
     if (response.ok) {
       const data = await response.json();
       alert(data.message);
-      window.location.href = '/adm/home/index.html';
+      window.location.href = '/reclame-aqui/adm/home/index.html';
     } else {
       const errorData = await response.json();
       alert(`Erro: ${errorData.message || 'Erro desconhecido'}`);

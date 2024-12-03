@@ -103,10 +103,10 @@ def get_reclamacoes():
 # Rota para listar todas as reclamações e verificar resposta do usuário por ID
 @app.route('/getallreclamacoes/<int:id>', methods=['PUT'])
 def getall_reclamacoes(id):
-    id = int(id)
     for reclamacao in reclamacoes:
-        if reclamacao['id'] == int(id):
-            reclamacao['resposta_reclamacao'] = request.form['resposta-empresa']
+        if reclamacao['id'] == id:
+            # Aqui você pega o campo 'resposta' do JSON
+            reclamacao['resposta_reclamacao'] = request.json['resposta']
             return jsonify({"message": "Resposta da empresa adicionada à reclamação"}), 200
     return jsonify({"error": "Reclamação não encontrada"}), 404
 

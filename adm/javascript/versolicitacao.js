@@ -54,25 +54,47 @@ carregarDetalhesReclamacao();
 
 
 async function respondareclama(event) {
-    event.preventDefault(); // Prevents the default form behavior
-    const resposta = document.getElementById('resposta-empresa'); // Selects the response form
-    const id  = getReclamacaoIdFromURL(); // Assuming this function retrieves the complaint ID from the URL
-    const response = await fetch(`https://88b7c53b-f8c2-4a85-8211-2fd5dc7fc089-00-wqhmyve1zz6r.picard.replit.dev/getallreclamacoes/${id}`, {
-      method: 'PUT',
-      body: resposta
-    });
+    event.preventDefault();
   
-    if (response.status == 201) {
-      const data = await response.json();
-      const mensagem = data.message; // Assuming the API response contains a success message
-      alert(mensagem);
-      window.location.href = '/adm/home/index.html'; // Redirects to home page
-      return true;
-    } else if (response.status == 409) {
-      alert('Você já respondeu esse usuário!'); // Alert if response status is 409 (Conflict)
-      return false;
-    } else {
-      alert('Falha ao cadastrar sua resposta! Fale com o suporte'); // Alert for other errors
+    const resposta = document.getElementById('resposta-empresa').value;
+  
+    if (!resposta.trim()) {
+      alert('Por favor, insira uma resposta!');
       return false;
     }
+  
+    const id = getReclamacaoIdFromURL();
+    if (!id) {
+      alert('ID da reclamação não encontrado.');
+      return false;
+    }
+  
+    try {
+      const formData = new FormData();
+      formData.append('resposta-empresa', resposta); // Envia a resposta como parte do formulário
+  
+      const response = await fetch(`https://88b7c53b-f8c2-4a85-8211-2fd5dc7fc089-00-wqhmyve1zz6r.picard.replit.dev/getallreclamacoes/${id}`, {
+        method: 'PUT',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        window.location.href = '/adm/home/index.html';
+      } else {
+        const errorData = await response.json();
+        alert(`Erro: ${errorData.message || 'Erro desconhecido'}`);
+      }
+    } catch (error) {
+      console.error('Erro ao fazer a requisição:', error);
+      alert('Erro ao tentar enviar a resposta');
+    }
+  }
+  
+
+// Função para obter o ID da reclamação da URL (ajuste conforme necessário)
+function getReclamacaoIdFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('id'); // Obtém o parâmetro "id" da URL
 }

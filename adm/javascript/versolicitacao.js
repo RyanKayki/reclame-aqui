@@ -20,12 +20,13 @@ async function mostrarReclamacaoPorId(id) {
             const statusElement = document.getElementById("reclame-status");
 
             if (data.ativo) {
-                statusElement.innerHTML = `<p class="border border-danger text-white bg-danger rounded-2 text-center m-0 flex-grow-1"
-                style="height: 80%;">😕 Não respondida</p>`;
-            } else {
-                statusElement.innerHTML = `<p class="border border-success text-white bg-danger rounded-2 text-center m-0 flex-grow-1"
-                style="height: 80%;">😁 Respondida</p>`;
-            }
+              statusElement.innerHTML = `<p class="border border-danger text-white bg-danger rounded-2 text-center m-0 flex-grow-1"
+              style="height: 80%;">😕 Não respondida</p>`;
+          } else {
+              statusElement.innerHTML = `<p class="border border-success text-white bg-success rounded-2 text-center m-0 flex-grow-1"
+              style="height: 80%;">😁 Respondida</p>`;
+          }
+          
         }
     } catch (error) {
         console.error("Erro ao buscar reclamação:", error.message);
@@ -84,7 +85,11 @@ async function respondareclama(event) {
     if (response.ok) {
       const data = await response.json();
       alert(data.message);
-      window.location.href = '/reclame-aqui/adm/home/index.html';
+      if (email.includes("@reclame.com")) {
+        window.location.href = '/../reclame-aqui/adm/home/index.html?nome=' + encodeURIComponent(nome) + "&email=" + encodeURIComponent(email);
+      } else {
+        window.location.href = '/../reclame-aqui/usuario/home/index.html?nome=' + encodeURIComponent(nome) + "&email=" + encodeURIComponent(email);
+      }
     } else {
       const errorData = await response.json();
       alert(`Erro: ${errorData.message || 'Erro desconhecido'}`);

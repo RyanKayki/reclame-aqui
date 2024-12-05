@@ -29,5 +29,12 @@
     <div id="stars"></div>
     <div id="stars2"></div>
     <script src="../js/index.js"></script>
+    <script>
+        if (data.resposta) {
+                document.getElementById("resposta-empresa").textContent = data.resposta;
+            } else {
+                document.getElementById("resposta-empresa").textContent = "Sem resposta ainda.";
+            } 
+    </script>
 </body>
 </html>

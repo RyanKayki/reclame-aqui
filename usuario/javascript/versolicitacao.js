@@ -12,6 +12,7 @@ async function mostrarReclamacaoPorId(id) {
 
             document.getElementById("reclame-assunto").textContent = data.assunto;
             document.getElementById("reclame-reclama").textContent = data.reclama;
+            document.getElementById("resposta-empresa").textContent = data.resposta_reclamacao;
             document.getElementById("reclame-data").innerHTML += `${dataFormatada}`;
             document.getElementById("reclame-hora").innerHTML += `${horaFormatada}`;
             document.getElementById("reclame-setor").innerHTML += `${data.setor}`;
@@ -23,9 +24,14 @@ async function mostrarReclamacaoPorId(id) {
                 statusElement.innerHTML = `<p class="border border-danger text-white bg-danger rounded-2 text-center m-0 flex-grow-1"
                 style="height: 80%;">😕 Não respondida</p>`;
             } else {
-                statusElement.innerHTML = `<p class="border border-success text-white bg-danger rounded-2 text-center m-0 flex-grow-1"
+                statusElement.innerHTML = `<p class="border border-success text-white bg-success rounded-2 text-center m-0 flex-grow-1"
                 style="height: 80%;">😁 Respondida</p>`;
             }
+            if (data.resposta_reclamacao) {
+                document.getElementById("resposta-empresa").textContent = data.resposta_reclamacao;
+            } else {
+                document.getElementById("resposta-empresa").textContent = "Sem resposta ainda.";
+            }            
         }
     } catch (error) {
         console.error("Erro ao buscar reclamação:", error.message);

@@ -360,7 +360,7 @@
       body: formData
     })
   
-    if (response.status == 201) {
+    if (response.status == 201) { 
       alert('Usuário alterado com sucesso!')
       window.location.href = "/adm/gestao.html"
       return true

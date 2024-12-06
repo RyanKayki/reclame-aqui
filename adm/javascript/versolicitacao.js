@@ -85,18 +85,13 @@ async function respondareclama(event) {
     if (response.ok) {
       const data = await response.json();
       alert(data.message);
-      if (email.includes("@reclame.com")) {
-        window.location.href = '/../reclame-aqui/adm/home/index.html?nome=' + encodeURIComponent(nome) + "&email=" + encodeURIComponent(email);
-      } else {
-        window.location.href = '/../reclame-aqui/usuario/home/index.html?nome=' + encodeURIComponent(nome) + "&email=" + encodeURIComponent(email);
-      }
     } else {
       const errorData = await response.json();
       alert(`Erro: ${errorData.message || 'Erro desconhecido'}`);
     }
+    window.location.href = '/../reclame-aqui/adm/home/index.html?nome=' + encodeURIComponent(nome) + "&email=" + encodeURIComponent(email);
   } catch (error) {
     console.error('Erro ao fazer a requisição:', error);
-    alert('Erro ao tentar enviar a resposta');
   }
 }
 
